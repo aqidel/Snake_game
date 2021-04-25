@@ -1,5 +1,4 @@
 import turtle
-import time
 from mechanics.movement import *
 from mechanics.snake import snake_part
 
@@ -18,6 +17,4 @@ while True:
     window.onkeypress(go_left, 'Left')
     window.onkeypress(snake_part, 'r')
     window.onkeypress(turtle.bye, 'e')
-    while True:
-    	time.sleep(1)
-    	coord_change()
+    coord_change(direction[0], direction[1])
