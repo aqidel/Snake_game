@@ -16,6 +16,8 @@ def create_snake():
 		snake_chain.goto(snake[0].xcor(), snake[0].ycor() - 20)
 	snake.insert(0, snake_chain)
 
+create_snake()
+
 def coord_change(num, sign):
     if sign == '+':
         coordinates[num] += 20
@@ -24,7 +26,7 @@ def coord_change(num, sign):
     snake[0].goto(coordinates[0], coordinates[1])
     snake.append(snake[0])
     snake.remove(snake[0])
-    time.sleep(1)
+    time.sleep(0.5)
 
 def go_up():
     global previous_move

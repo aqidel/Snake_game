@@ -9,8 +9,6 @@ window.listen()
 
 # Mechanics
 
-create_snake()
-
 while True:
     window.update()
     window.onkeypress(go_up, 'Up')
@@ -20,3 +18,4 @@ while True:
     window.onkeypress(create_snake, 'r')
     window.onkeypress(turtle.bye, 'e')
     coord_change(direction[0], direction[1])
+    eat_the_ball()
