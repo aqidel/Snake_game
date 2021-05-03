@@ -1,22 +1,24 @@
 import turtle
 import time
 
+snake = []
 coordinates = [0, 0]
 direction = [1, '+']
 previous_move = ''
-snake = []
 
-def create_snake():
-	snake_chain = turtle.Turtle()
-	snake_chain.speed(0)
-	snake_chain.penup()
-	snake_chain.shape('square')
-	snake_chain.color('white')
-	if len(snake) > 0:
-		snake_chain.goto(snake[0].xcor(), snake[0].ycor() - 20)
-	snake.insert(0, snake_chain)
+class Snake_chain(turtle.Turtle):
+    def __init__(self):
+        super().__init__()
+        self.speed(0)
+        self.penup()
+        self.shape('square')
+        self.color('white')
+        self.create_snake()
 
-create_snake()
+    def create_snake(self):
+	    if len(snake) > 0:
+		    self.goto(snake[0].xcor(), snake[0].ycor() - 20)
+	    snake.insert(0, self)
 
 def coord_change(num, sign):
     if sign == '+':
@@ -35,6 +37,7 @@ def go_up():
     direction[0] = 1 
     direction[1] = '+'
     previous_move = 'up'
+
 def go_down():
     global previous_move
     if previous_move == 'up':
@@ -42,6 +45,7 @@ def go_down():
     direction[0] = 1 
     direction[1] = '-'
     previous_move = 'down'
+
 def go_right():
     global previous_move
     if previous_move == 'left':
@@ -49,6 +53,7 @@ def go_right():
     direction[0] = 0
     direction[1] = '+'
     previous_move = 'right'
+    
 def go_left():
     global previous_move
     if previous_move == 'right':

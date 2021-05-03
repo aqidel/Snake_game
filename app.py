@@ -1,6 +1,6 @@
 import turtle
 from snake import *
-from ball import *
+from ball import Ball
 
 window = turtle.Screen()
 window.bgcolor('black')
@@ -9,13 +9,16 @@ window.listen()
 
 # Mechanics
 
+Snake_chain()
+ball = Ball()
+
 while True:
     window.update()
     window.onkeypress(go_up, 'Up')
     window.onkeypress(go_down, 'Down')
     window.onkeypress(go_right, 'Right')
     window.onkeypress(go_left, 'Left')
-    window.onkeypress(create_snake, 'r')
+    window.onkeypress(Snake_chain, 'r')
     window.onkeypress(turtle.bye, 'e')
     coord_change(direction[0], direction[1])
-    eat_the_ball()
+    ball.eat_the_ball()
