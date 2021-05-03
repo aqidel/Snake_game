@@ -20,7 +20,7 @@ class Ball(turtle.Turtle):
 			while coord % 20:
 				coord = random.randint(-30, 30) * 10
 			self.ball_coord.append(coord)
-		self.goto(self.ball_coord[0], self.ball_coord[1])
+		self.setpos(self.ball_coord[0], self.ball_coord[1])
 		coord = 1
 
 	def eat_the_ball(self):

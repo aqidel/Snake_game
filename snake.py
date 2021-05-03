@@ -16,16 +16,16 @@ class Snake_chain(turtle.Turtle):
         self.create_snake()
 
     def create_snake(self):
-	    if len(snake) > 0:
-		    self.goto(snake[0].xcor(), snake[0].ycor() - 20)
-	    snake.insert(0, self)
+        if len(snake) > 0:
+            self.setpos(snake[0].xcor(), snake[0].ycor() - 20)
+        snake.insert(0, self)
 
 def coord_change(num, sign):
     if sign == '+':
         coordinates[num] += 20
     else:
         coordinates[num] -= 20
-    snake[0].goto(coordinates[0], coordinates[1])
+    snake[0].setpos(coordinates[0], coordinates[1])
     snake.append(snake[0])
     snake.remove(snake[0])
     time.sleep(0.5)
@@ -53,7 +53,7 @@ def go_right():
     direction[0] = 0
     direction[1] = '+'
     previous_move = 'right'
-    
+
 def go_left():
     global previous_move
     if previous_move == 'right':
