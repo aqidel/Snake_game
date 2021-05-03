@@ -9,6 +9,12 @@ window.listen()
 
 # Mechanics
 
+boolean = True
+
+def turnoff():
+    global boolean
+    boolean = False
+
 Snake_chain()
 ball = Ball()
 
@@ -17,9 +23,10 @@ window.onkeypress(go_down, 'Down')
 window.onkeypress(go_right, 'Right')
 window.onkeypress(go_left, 'Left')
 window.onkeypress(Snake_chain, 'r')
-window.onkeypress(turtle.bye, 'e')
+window.onkeypress(turnoff, 'Escape')
+coord_change(direction[0], direction[1])
 
-while True:
+while boolean:
     window.update()
     coord_change(direction[0], direction[1])
     ball.eat_the_ball()
