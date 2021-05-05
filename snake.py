@@ -1,9 +1,14 @@
+# Snake module
 import turtle
 import time
 
+# Array including all snake's parts
 snake = []
+# Coordinates of the head
 coordinates = [0, 0]
+# Direction of movement. 1 (+,-) for y (up, down); 0 (+,-) for x (right, left)
 direction = [1, '+']
+# For backward movement prevention. I.e., with 'down' value can't return same way (upward)
 previous_move = ''
 
 class Snake_chain(turtle.Turtle):
@@ -20,6 +25,7 @@ class Snake_chain(turtle.Turtle):
             self.setpos(snake[0].xcor(), snake[0].ycor() - 20)
         snake.insert(0, self)
 
+# Auto-movement every 0.5 sec to given direction
 def coord_change(num, sign):
     if sign == '+':
         coordinates[num] += 20
@@ -30,6 +36,7 @@ def coord_change(num, sign):
     snake.remove(snake[0])
     time.sleep(0.5)
 
+# For contols from app.py & giving direction & backward movement prevention
 def go_up():
     global previous_move
     if previous_move == 'down':
